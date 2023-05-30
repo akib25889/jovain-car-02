@@ -1,17 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templatesFiles', 
+ static_folder='staticFiles')
 
 
 @app.route("/")
 def hello_world():
-  return """<b>Hello, World!</b>
-  <button> akib</button>
-  <style>
-  button{
-  width: 200px;
-  }
-  </style>"""
+  return render_template('home.html')
+  
 
 
 if __name__ == "__main__":
